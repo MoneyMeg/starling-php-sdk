@@ -25,49 +25,54 @@ class Api
     protected $env = self::ENV_SANDBOX;
 
     /**
-     * Store our identity
+     * Store our identity.
      *
      * @var Starling\Identity|null
      */
     protected $identity;
 
     /**
-     * Get our url
+     * Get our url.
      *
      * @return string
      */
     public function getUrl()
     {
         $base = $this->env == self::ENV_PROD ? self::PROD_URL : self::SANDBOX_URL;
-        return $base . "/" . self::API_VERSION . "/";
+
+        return $base.'/'.self::API_VERSION.'/';
     }
 
     /**
-     * Set our env
+     * Set our env.
      *
      * @param string
+     *
      * @return $this
      */
     public function setEnv($env)
     {
         $this->env = $env == self::ENV_SANDBOX || $env == self::ENV_PROD ? $env : self::ENV_SANDBOX;
+
         return $this;
     }
 
     /**
-     * Set indetity
+     * Set indetity.
      *
      * @param Smartling\Identity $identity
+     *
      * @return $this
      */
     public function setIdentity(Identity $identity)
     {
         $this->identity = $identity;
+
         return $this;
     }
 
     /**
-     * Get indetity
+     * Get indetity.
      *
      * @return Smartling\Identity|null
      */
@@ -77,13 +82,13 @@ class Api
     }
 
     /**
-     * Get CA File
+     * Get CA File.
      *
      * @return string
      */
     public function getCAFile()
     {
-        $file = __DIR__ . "/../data/" . self::CA_FILE;
+        $file = __DIR__.'/../data/'.self::CA_FILE;
         if (!file_exists($file)) {
             throw new InvalidCAFile();
         }

@@ -4,30 +4,29 @@ namespace Starling\Api;
 
 class Request implements RequestInterface
 {
-
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
     protected $endpoint;
 
     /**
-     * Whats our type
+     * Whats our type.
      *
      * @var string
      */
     protected $type;
 
     /**
-     * Whats our values
+     * Whats our values.
      *
      * @var array
      */
     protected $values = [];
 
     /**
-     * Return our endpoint
+     * Return our endpoint.
      *
      * @return string
      */
@@ -37,7 +36,7 @@ class Request implements RequestInterface
     }
 
     /**
-     * Return our request type
+     * Return our request type.
      *
      * post, get, put, delete
      *

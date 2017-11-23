@@ -8,7 +8,7 @@ class IdentityTest extends \PHPUnit\Framework\TestCase
 {
     public function testCanSetAccessToken()
     {
-        $token = "my-access-token";
+        $token = 'my-access-token';
         $identity = new Identity($token);
         $this->assertSame($identity->getAccessToken(), $token);
     }

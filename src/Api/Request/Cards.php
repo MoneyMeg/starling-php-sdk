@@ -2,20 +2,20 @@
 
 namespace Starling\Api\Request;
 
-use Starling\Api\Request;
 use Starling\Api as Base;
+use Starling\Api\Request;
 
 class Cards extends Request
 {
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
-    protected $endpoint = "cards";
+    protected $endpoint = 'cards';
 
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */

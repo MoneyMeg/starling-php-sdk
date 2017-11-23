@@ -2,20 +2,20 @@
 
 namespace Starling\Api\Request;
 
-use Starling\Api\Request;
 use Starling\Api as Base;
+use Starling\Api\Request;
 
 class Payments extends Request
 {
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
-    protected $endpoint = "payments/scheduled";
+    protected $endpoint = 'payments/scheduled';
 
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */

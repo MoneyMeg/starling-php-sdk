@@ -2,44 +2,45 @@
 
 namespace Starling\Api\Request\Merchants;
 
-use Starling\Api\Request;
 use Starling\Api as Base;
+use Starling\Api\Request;
 use Starling\Exception\RequiredValuesMissing;
 
 class Location extends Request
 {
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
-    protected $endpoint = "merchants/{merchant_id}/locations/{merchant_location_id}";
+    protected $endpoint = 'merchants/{merchant_id}/locations/{merchant_location_id}';
 
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
     protected $type = Base::TYPE_GET;
 
     /**
-     * Hold our ID
+     * Hold our ID.
      *
      * @var string
      */
     protected $merchant_id;
 
     /**
-     * Hold our Location ID
+     * Hold our Location ID.
      *
      * @var string
      */
     protected $merchant_location_id;
 
     /**
-     * Build our request
+     * Build our request.
      *
      * @param array $values
+     *
      * @return void
      */
     public function __construct($values = [])
@@ -53,15 +54,15 @@ class Location extends Request
     }
 
     /**
-     * Get endpoint
+     * Get endpoint.
      *
      * @return string
      */
     public function getEndpoint()
     {
         return strtr($this->endpoint, [
-            "{merchant_id}" => $this->merchant_id,
-            "{merchant_location_id}" => $this->merchant_location_id
+            '{merchant_id}'          => $this->merchant_id,
+            '{merchant_location_id}' => $this->merchant_location_id,
         ]);
     }
 }

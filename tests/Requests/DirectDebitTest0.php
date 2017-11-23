@@ -2,7 +2,7 @@
 
 namespace Starling\Tests;
 
-class DirectDebitTest extends \PHPUnit\Framework\TestCase
+class DirectDebitTest0 extends \PHPUnit\Framework\TestCase
 {
     private function isValidRequest($request)
     {

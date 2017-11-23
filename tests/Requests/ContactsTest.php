@@ -33,7 +33,7 @@ class ContactsTest extends \PHPUnit\Framework\TestCase
     {
         $request = new \Starling\Api\Request\Contacts\Account([
             'customer_id' => 'test-id',
-            'account_id'  => 'test-id'
+            'account_id'  => 'test-id',
         ]);
 
         $this->isValidRequest($request);
@@ -45,7 +45,7 @@ class ContactsTest extends \PHPUnit\Framework\TestCase
     public function testContactsContactAccountExceptionRequest()
     {
         $request = new \Starling\Api\Request\Contacts\Account([
-            'customer_id' => 'test-id'
+            'customer_id' => 'test-id',
         ]);
     }
 }

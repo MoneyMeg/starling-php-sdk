@@ -2,15 +2,14 @@
 
 namespace Starling\Api\Request\Transactions;
 
-use Starling\Api\Request;
 use Starling\Api\Request\Transactions;
 
 class DirectDebit extends Transactions
 {
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
-    protected $endpoint = "transactions/direct-debit";
+    protected $endpoint = 'transactions/direct-debit';
 }
