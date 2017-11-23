@@ -1,6 +1,6 @@
 # Starling PHP SDK
 
-[![CircleCI](https://circleci.com/gh/MoneyMeg/starling-php-sdk.svg?style=svg&circle-token=e03ccecf3832ac3bc62bd569646d59ed610c2fb9)](https://circleci.com/gh/MoneyMeg/starling-php-sdk)
+[![CircleCI](https://circleci.com/gh/MoneyMeg/starling-php-sdk.svg?style=svg&circle-token=e03ccecf3832ac3bc62bd569646d59ed610c2fb9)](https://circleci.com/gh/MoneyMeg/starling-php-sdk) [![StyleCI](https://styleci.io/repos/111804992/shield?branch=master)](https://styleci.io/repos/111804992)
 
 This is an SDK for the starling SDK, you'll have to take care of getting tokens from users but once you have one this SDK will wrap the whole API to allow for ease of use in PHP.
 
