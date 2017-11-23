@@ -2,15 +2,14 @@
 
 namespace Starling\Api;
 
-use Starling\Identity;
-use Starling\Api\Request;
-use Starling\Api as Base;
 use GuzzleHttp\Client as Guzzle;
+use Starling\Api as Base;
+use Starling\Identity;
 
 class Client extends Base
 {
     /**
-     * Hold our request client
+     * Hold our request client.
      *
      * @var GuzzleHttp\Client
      */
@@ -20,7 +19,7 @@ class Client extends Base
      * Build our client.
      *
      * @param Starling\Identity $identity
-     * @param array $options
+     * @param array             $options
      */
     public function __construct(Identity $identity, array $options = [])
     {
@@ -38,7 +37,7 @@ class Client extends Base
             'headers'  => [
                 'User-Agent'    => 'Starling PHP SDK',
                 'Accept'        => 'application/json',
-                'Authorization' => 'Bearer ' . $this->getIdentity()->getAccessToken(),
+                'Authorization' => 'Bearer '.$this->getIdentity()->getAccessToken(),
             ],
             'stream'        => false,
             'synchronous'   => true,
@@ -47,7 +46,7 @@ class Client extends Base
     }
 
     /**
-     * Get our requester
+     * Get our requester.
      *
      * @return Guzzle\Client
      */
@@ -57,61 +56,70 @@ class Client extends Base
     }
 
     /**
-     * Do a get request
+     * Do a get request.
      *
      * @param string $endpoint
-     * @param array $values
+     * @param array  $values
+     *
      * @return Guzzle\Response
      */
     public function get($endpoint = '/', array $values = [])
     {
         $client = $this->getRequester();
+
         return $client->request('GET', $endpoint, $values);
     }
 
     /**
-     * Do a post request
+     * Do a post request.
      *
      * @param string $endpoint
-     * @param array $values
+     * @param array  $values
+     *
      * @return Guzzle\Response
      */
     public function post($endpoint = '/', array $values = [])
     {
         $client = $this->getRequester();
+
         return $client->request('POST', $endpoint, $values);
     }
 
     /**
-     * Do a put request
+     * Do a put request.
      *
      * @param string $endpoint
-     * @param array $values
+     * @param array  $values
+     *
      * @return Guzzle\Response
      */
     public function put($endpoint = '/', array $values = [])
     {
         $client = $this->getRequester();
+
         return $client->request('PUT', $endpoint, $values);
     }
 
     /**
-     * Do a delete request
+     * Do a delete request.
      *
      * @param string $endpoint
-     * @param array $values
+     * @param array  $values
+     *
      * @return Guzzle\Response
      */
     public function delete($endpoint = '/', array $values = [])
     {
         $client = $this->getRequester();
+
         return $client->request('DELETE', $endpoint);
     }
 
     /**
-     * Perform a Request
+     * Perform a Request.
      *
      * @param Request $request
+     *
      * @return Guzzle\Response
      */
     public function request(Request $request)

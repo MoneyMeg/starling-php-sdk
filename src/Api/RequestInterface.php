@@ -5,14 +5,14 @@ namespace Starling\Api;
 interface RequestInterface
 {
     /**
-     * Return our endpoint
+     * Return our endpoint.
      *
      * @return string
      */
     public function getEndpoint();
 
     /**
-     * Return our request type
+     * Return our request type.
      *
      * post, get, put, delete
      *

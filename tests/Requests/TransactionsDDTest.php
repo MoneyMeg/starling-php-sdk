@@ -2,7 +2,7 @@
 
 namespace Starling\Tests;
 
-use DateTime;;
+use DateTime;
 
 class TransactionsDDTest extends \PHPUnit\Framework\TestCase
 {
@@ -28,8 +28,8 @@ class TransactionsDDTest extends \PHPUnit\Framework\TestCase
     public function testTransactionsDDDateRangeRequest()
     {
         $request = new \Starling\Api\Request\Transactions\DirectDebit([
-            'from' => new DateTime("-7 days ago"),
-            'to'   => new DateTime()
+            'from' => new DateTime('-7 days ago'),
+            'to'   => new DateTime(),
         ]);
 
         $this->isValidRequest($request);

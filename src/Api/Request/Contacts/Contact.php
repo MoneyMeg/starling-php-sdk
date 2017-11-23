@@ -2,36 +2,37 @@
 
 namespace Starling\Api\Request\Contacts;
 
-use Starling\Api\Request;
 use Starling\Api as Base;
+use Starling\Api\Request;
 
 class Contact extends Request
 {
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
-    protected $endpoint = "contacts/{id}";
+    protected $endpoint = 'contacts/{id}';
 
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
     protected $type = Base::TYPE_GET;
 
     /**
-     * Hold our ID
+     * Hold our ID.
      *
      * @var string
      */
     protected $customer_id;
 
     /**
-     * Build our request
+     * Build our request.
      *
      * @param string $customerId
+     *
      * @return void
      */
     public function __construct($customerId)
@@ -40,7 +41,7 @@ class Contact extends Request
     }
 
     /**
-     * Get endpoint
+     * Get endpoint.
      *
      * If we have an id, modify endpoint
      *
@@ -48,6 +49,6 @@ class Contact extends Request
      */
     public function getEndpoint()
     {
-        return str_replace("{id}", $this->customer_id, $this->endpoint);
+        return str_replace('{id}', $this->customer_id, $this->endpoint);
     }
 }

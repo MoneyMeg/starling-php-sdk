@@ -2,36 +2,37 @@
 
 namespace Starling\Api\Request;
 
-use Starling\Api\Request;
 use Starling\Api as Base;
+use Starling\Api\Request;
 
 class DirectDebits extends Request
 {
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
-    protected $endpoint = "direct-debit/mandates";
+    protected $endpoint = 'direct-debit/mandates';
 
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
     protected $type = Base::TYPE_GET;
 
     /**
-     * Hold our ID
+     * Hold our ID.
      *
      * @var string
      */
     protected $mandate_id;
 
     /**
-     * Build our request
+     * Build our request.
      *
      * @param string $mandateUid
+     *
      * @return void
      */
     public function __construct($mandateUid = null)
@@ -40,7 +41,7 @@ class DirectDebits extends Request
     }
 
     /**
-     * Get endpoint
+     * Get endpoint.
      *
      * If we have an id, modify endpoint
      *
@@ -49,7 +50,7 @@ class DirectDebits extends Request
     public function getEndpoint()
     {
         if ($this->mandate_id) {
-            return $this->endpoint . "/{$this->mandate_id}";
+            return $this->endpoint."/{$this->mandate_id}";
         }
 
         return $this->endpoint;

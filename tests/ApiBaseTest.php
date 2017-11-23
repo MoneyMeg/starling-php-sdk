@@ -13,18 +13,19 @@ class ApiBaseTest extends \PHPUnit\Framework\TestCase
         $this->identity->method('getAccessToken')
             ->willReturn('test-access-token');
     }
+
     public function testCanGetProdUrl()
     {
         $api = new Api();
         $api->setEnv(Api::ENV_PROD);
-        $verify = "https://api.starlingbank.com/api/v1/";
+        $verify = 'https://api.starlingbank.com/api/v1/';
         $this->assertSame($api->getUrl(), $verify);
     }
 
     public function testCanGetSandboxUrl()
     {
         $api = new Api();
-        $verify = "https://api-sandbox.starlingbank.com/api/v1/";
+        $verify = 'https://api-sandbox.starlingbank.com/api/v1/';
         $this->assertSame($api->getUrl(), $verify);
     }
 

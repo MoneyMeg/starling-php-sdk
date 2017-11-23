@@ -2,7 +2,7 @@
 
 namespace Starling\Tests;
 
-use DateTime;;
+use DateTime;
 
 class TransactionsTest extends \PHPUnit\Framework\TestCase
 {
@@ -28,8 +28,8 @@ class TransactionsTest extends \PHPUnit\Framework\TestCase
     public function testTransactionsDateRangeRequest()
     {
         $request = new \Starling\Api\Request\Transactions([
-            'from' => new DateTime("-7 days ago"),
-            'to'   => new DateTime()
+            'from' => new DateTime('-7 days ago'),
+            'to'   => new DateTime(),
         ]);
 
         $this->isValidRequest($request);

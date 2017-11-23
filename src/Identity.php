@@ -5,16 +5,17 @@ namespace Starling;
 class Identity
 {
     /**
-     * Hold our access token
+     * Hold our access token.
      *
      * @var string
      */
     protected $access_token;
 
     /**
-     * Construct our identity
+     * Construct our identity.
      *
      * @param $access_token
+     *
      * @return void
      */
     public function __construct($access_token)
@@ -23,7 +24,7 @@ class Identity
     }
 
     /**
-     * Get our token
+     * Get our token.
      *
      * @return string
      */

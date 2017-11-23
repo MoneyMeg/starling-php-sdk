@@ -20,8 +20,8 @@ class MerchantsTest extends \PHPUnit\Framework\TestCase
     public function testMerchantLocationRequest()
     {
         $request = new \Starling\Api\Request\Merchants\Location([
-            'merchant_id' => 'test-id',
-            'merchant_location_id' => 'test-id'
+            'merchant_id'          => 'test-id',
+            'merchant_location_id' => 'test-id',
         ]);
         $this->isValidRequest($request);
     }
@@ -32,7 +32,7 @@ class MerchantsTest extends \PHPUnit\Framework\TestCase
     public function testMerchantLocationExceptionRequest()
     {
         $request = new \Starling\Api\Request\Merchants \Location([
-            'merchant_id' => 'test-id'
+            'merchant_id' => 'test-id',
         ]);
     }
 }

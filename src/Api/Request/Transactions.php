@@ -2,28 +2,27 @@
 
 namespace Starling\Api\Request;
 
-use Starling\Api\Request;
 use Starling\Api as Base;
+use Starling\Api\Request;
 
 class Transactions extends Request
 {
-
     /**
-     * Our date format
+     * Our date format.
      *
      * @param string
      */
     const DATE_FORMAT = 'Y-m-d';
 
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
-    protected $endpoint = "transactions";
+    protected $endpoint = 'transactions';
 
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
@@ -44,20 +43,20 @@ class Transactions extends Request
     protected $to;
 
     /**
-     * Transaction Id
+     * Transaction Id.
      *
      * @var string
      */
     protected $transaction_id;
 
     /**
-     * Construct our Request
+     * Construct our Request.
      *
      * @param string|array
      */
     public function __construct($params = null)
     {
-        # If we're not an array we must be an id
+        // If we're not an array we must be an id
         if ($params && !is_array($params)) {
             $this->transaction_id = $params;
         } elseif (isset($params['from'], $params['to']) && is_object($params['from']) && is_object($params['to'])) {
@@ -67,7 +66,7 @@ class Transactions extends Request
     }
 
     /**
-     * Get our values
+     * Get our values.
      *
      * @return array
      */
@@ -86,12 +85,12 @@ class Transactions extends Request
     }
 
     /**
-     * Get our endpoint
+     * Get our endpoint.
      *
      * @return string
      */
     public function getEndpoint()
     {
-        return $this->transaction_id ? $this->endpoint . "/{$this->transaction_id}" : $this->endpoint;
+        return $this->transaction_id ? $this->endpoint."/{$this->transaction_id}" : $this->endpoint;
     }
 }

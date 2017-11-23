@@ -2,36 +2,37 @@
 
 namespace Starling\Api\Request;
 
-use Starling\Api\Request;
 use Starling\Api as Base;
+use Starling\Api\Request;
 
 class Merchants extends Request
 {
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
-    protected $endpoint = "merchants";
+    protected $endpoint = 'merchants';
 
     /**
-     * Whats our endpoint
+     * Whats our endpoint.
      *
      * @var string
      */
     protected $type = Base::TYPE_GET;
 
     /**
-     * Hold our ID
+     * Hold our ID.
      *
      * @var string
      */
     protected $merchant_id;
 
     /**
-     * Build our request
+     * Build our request.
      *
      * @param string $merchant_id
+     *
      * @return void
      */
     public function __construct($merchant_id = null)
@@ -40,7 +41,7 @@ class Merchants extends Request
     }
 
     /**
-     * Get endpoint
+     * Get endpoint.
      *
      * If we have an id, modify endpoint
      *
@@ -49,7 +50,7 @@ class Merchants extends Request
     public function getEndpoint()
     {
         if ($this->merchant_id) {
-            return $this->endpoint . "/{$this->merchant_id}";
+            return $this->endpoint."/{$this->merchant_id}";
         }
 
         return $this->endpoint;

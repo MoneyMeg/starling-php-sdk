@@ -2,9 +2,9 @@
 
 namespace Starling\Tests;
 
-use DateTime;;
+use DateTime;
 
-class TransactionsFPOTest extends \PHPUnit\Framework\TestCase
+class TransactionsFPSOTest extends \PHPUnit\Framework\TestCase
 {
     private function isValidRequest($request)
     {
@@ -28,8 +28,8 @@ class TransactionsFPOTest extends \PHPUnit\Framework\TestCase
     public function testTransactionsFPODateRangeRequest()
     {
         $request = new \Starling\Api\Request\Transactions\FasterPaymentsOut([
-            'from' => new DateTime("-7 days ago"),
-            'to'   => new DateTime()
+            'from' => new DateTime('-7 days ago'),
+            'to'   => new DateTime(),
         ]);
 
         $this->isValidRequest($request);
