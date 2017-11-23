@@ -10,7 +10,7 @@ I didn't want to be too opinionated so responses are not formatted.
 
 ## Install
 ```
-composer require moneymeg/starling-sdk
+composer require moneymeg/starling-php-sdk
 ```
 
 ## Test
