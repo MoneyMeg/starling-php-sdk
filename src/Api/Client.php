@@ -16,6 +16,13 @@ class Client extends Base
     protected $requester;
 
     /**
+     * Form request
+     *
+     * @var bool
+     */
+    protected $form_client = false;
+
+    /**
      * Build our client.
      *
      * @param Starling\Identity $identity
@@ -23,6 +30,22 @@ class Client extends Base
      */
     public function __construct(Identity $identity, array $options = [])
     {
+        $this->setIdentity($identity);
+
+        if (isset($options['form'])) {
+            $this->form_client = true;
+            $headers = [
+                'User-Agent'    => 'Starling PHP SDK',
+                'Content-Type' => 'application/x-www-form-urlencoded',
+            ];
+        } else {
+            $headers = [
+                'User-Agent'    => 'Starling PHP SDK',
+                'Accept'        => 'application/json',
+                'Authorization' => 'Bearer '.$this->getIdentity()->getAccessToken(),
+            ];
+        }
+
         if (isset($options['env'])) {
             $this->setEnv($options['env']);
         }
@@ -31,14 +54,9 @@ class Client extends Base
             $this->setEnv($options['env']);
         }
 
-        $this->setIdentity($identity);
         $this->requester = new Guzzle([
             'base_uri' => $this->getUrl(),
-            'headers'  => [
-                'User-Agent'    => 'Starling PHP SDK',
-                'Accept'        => 'application/json',
-                'Authorization' => 'Bearer '.$this->getIdentity()->getAccessToken(),
-            ],
+            'headers'  => $headers,
             'stream'        => false,
             'synchronous'   => true,
             'verify'        => $this->getCAFile(),
@@ -66,7 +84,6 @@ class Client extends Base
     public function get($endpoint = '/', array $values = [])
     {
         $client = $this->getRequester();
-
         return $client->request('GET', $endpoint, $values);
     }
 
@@ -81,7 +98,6 @@ class Client extends Base
     public function post($endpoint = '/', array $values = [])
     {
         $client = $this->getRequester();
-
         return $client->request('POST', $endpoint, $values);
     }
 
@@ -96,7 +112,6 @@ class Client extends Base
     public function put($endpoint = '/', array $values = [])
     {
         $client = $this->getRequester();
-
         return $client->request('PUT', $endpoint, $values);
     }
 
@@ -111,7 +126,6 @@ class Client extends Base
     public function delete($endpoint = '/', array $values = [])
     {
         $client = $this->getRequester();
-
         return $client->request('DELETE', $endpoint);
     }
 
@@ -126,7 +140,9 @@ class Client extends Base
     {
         $client = $this->getRequester();
 
-        if ($request->getType() == Base::TYPE_GET) {
+        if ($this->form_client) {
+            $body = ['form_params' => $request->getValues()];
+        } elseif ($request->getType() == Base::TYPE_GET) {
             $body = ['query' => $request->getValues()];
         } else {
             $body = ['body' => json_encode($request->getValues())];
