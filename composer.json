@@ -1,0 +1,17 @@
+{
+    "name": "moneymeg/starling-php-sdk",
+    "author": "Alan Cole <me@alancole.io",
+    "description": "A PHP SDK for the Starling Banking API.",
+    "type": "composer",
+    "autoload": {
+        "psr-4": {
+            "Starling\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}
